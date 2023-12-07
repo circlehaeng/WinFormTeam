@@ -107,7 +107,7 @@ namespace login
             }
         }
 
-        private void TimeTable_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        /*private void TimeTable_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
@@ -132,10 +132,19 @@ namespace login
                     MessageBox.Show("셀을 먼저 선택하세요.");
                 }
             }
-        }
+        }*/
 
         private object selectedValue;
         private Color a;
+
+        private void TimeTable_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                DataGridViewCell clickedCell = TimeTable.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                selectedValue = clickedCell.Value; // 클릭된 셀의 값을 selectedValue에 저장
+            }
+        }
 
         private void bt_delete_Click(object sender, EventArgs e)
         {
