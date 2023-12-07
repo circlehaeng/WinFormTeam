@@ -17,6 +17,7 @@ namespace login
         {
             InitializeComponent();
             InitializeTimetable(); //시작할 때 같이 실행
+
         }
 
         private void InitializeTimetable()
@@ -55,12 +56,13 @@ namespace login
                 }
             }
 
+
+
             // DataGridView 셀 클릭 이벤트 추가
             TimeTable.CellClick += TimeTable_CellClick; //cellclick 이벤트에 함수 추가
 
             // 변경 버튼 클릭 이벤트 추가
             PlusButton.Click += PlusButton_Click;
-
         }
 
         private void TimeTable_CellClick(object sender, DataGridViewCellEventArgs e) // 셀 눌렀을 떄
@@ -71,7 +73,223 @@ namespace login
             }
         }
 
-                private void PlusButton_Click(object sender, EventArgs e)
+
+
+        private void grade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedItem = grade.SelectedItem.ToString();
+            if (selectedItem == "1학년")
+            {
+                firstGrade.Visible = true;
+            }
+            else
+            {
+                firstGrade.Visible = false;
+            }
+
+            if (selectedItem == "2학년")
+            {
+                secondGrade.Visible = true;
+            }
+            else
+            {
+                secondGrade.Visible = false;
+            }
+
+            if (selectedItem == "3학년")
+            {
+                thirdGrade.Visible = true;
+            }
+            else
+            {
+                thirdGrade.Visible = false;
+            }
+            if (selectedItem == "4학년")
+            {
+                fourthGrade.Visible = true;
+            }
+            else
+            {
+                fourthGrade.Visible = false;
+            }
+
+        }
+
+        private void secondGrade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string inputItem = secondGrade.SelectedItem.ToString();
+            Random random = new Random();
+            Color randomColor = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
+            if (TimeTable.SelectedCells.Count > 0)
+            {
+                foreach (DataGridViewCell cell in TimeTable.SelectedCells)
+                {
+                    // 1행과 1열은 변경할 수 없도록 제한
+                    if (cell.RowIndex != 0 && cell.ColumnIndex != 0)
+                    {
+
+                        cell.Value = inputItem;
+                        cell.Style.BackColor = randomColor;// 선택된 모든 셀에 값을 채움
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("셀을 먼저 선택하세요."); // 선택된 셀이 없는 경우 메시지 표시
+            }
+        }
+
+        private void firstGrade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string inputItem = firstGrade.SelectedItem.ToString();
+            Random random = new Random();
+            Color randomColor = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
+            if (TimeTable.SelectedCells.Count > 0)
+            {
+                foreach (DataGridViewCell cell in TimeTable.SelectedCells)
+                {
+                    // 1행과 1열은 변경할 수 없도록 제한
+                    if (cell.RowIndex != 0 && cell.ColumnIndex != 0)
+                    {
+                        cell.Value = inputItem; // 선택된 모든 셀에 값을 채움
+                        cell.Style.BackColor = randomColor;
+
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("셀을 먼저 선택하세요."); // 선택된 셀이 없는 경우 메시지 표시
+            }
+        }
+
+        private void thirdGrade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string inputItem = thirdGrade.SelectedItem.ToString();
+            Random random = new Random();
+            Color randomColor = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
+            if (TimeTable.SelectedCells.Count > 0)
+            {
+                foreach (DataGridViewCell cell in TimeTable.SelectedCells)
+                {
+                    // 1행과 1열은 변경할 수 없도록 제한
+                    if (cell.RowIndex != 0 && cell.ColumnIndex != 0)
+                    {
+                        cell.Value = inputItem;
+                        cell.Style.BackColor = randomColor;// 선택된 모든 셀에 값을 채움
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("셀을 먼저 선택하세요."); // 선택된 셀이 없는 경우 메시지 표시
+            }
+        }
+
+        private void fourthGrade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string inputItem = fourthGrade.SelectedItem.ToString();
+            Random random = new Random();
+            Color randomColor = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
+            if (TimeTable.SelectedCells.Count > 0)
+            {
+                foreach (DataGridViewCell cell in TimeTable.SelectedCells)
+                {
+                    // 1행과 1열은 변경할 수 없도록 제한
+                    if (cell.RowIndex != 0 && cell.ColumnIndex != 0)
+                    {
+                        cell.Value = inputItem;
+                        cell.Style.BackColor = randomColor;// 선택된 모든 셀에 값을 채움
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("셀을 먼저 선택하세요."); // 선택된 셀이 없는 경우 메시지 표시
+            }
+        }
+        /*
+         private void TimeTable_CellClick_1(object sender, DataGridViewCellEventArgs e)
+         {
+             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+             {
+                 DataGridViewCell clickedCell = TimeTable.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+                 // 1행과 1열인 경우 (인덱스가 0일 때) 변경되지 않도록 경고 메시지 표시
+                 if (e.RowIndex == 0 || e.ColumnIndex == 0)
+                 {
+                     MessageBox.Show("이 셀은 변경할 수 없습니다.");
+                     return;
+                 }
+
+                 // 이하 선택된 셀에 내용을 변경하는 코드
+                 string inputItem = secondGrade.SelectedItem.ToString();
+                 if (clickedCell != null)
+                 {
+                     string newContent = inputItem;
+                     clickedCell.Value = newContent;
+                 }
+                 else
+                 {
+                     MessageBox.Show("셀을 먼저 선택하세요.");
+                 }
+             }
+         }
+         */
+        private void color_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedColor = color.SelectedItem.ToString();
+            if (selectedColor == "lightBlue")
+            {
+                TimeTable.DefaultCellStyle.BackColor = Color.LightBlue;
+            }
+            if (selectedColor == "pink")
+                TimeTable.DefaultCellStyle.BackColor = Color.Pink;
+            if (selectedColor == "yellow")
+                TimeTable.DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
+            if (selectedColor == "blue")
+                TimeTable.DefaultCellStyle.BackColor = Color.Blue;
+            if (selectedColor == "white")
+                TimeTable.DefaultCellStyle.BackColor = Color.White;
+            if (selectedColor == "gray")
+                TimeTable.DefaultCellStyle.BackColor = Color.Gray;
+        }
+
+
+
+
+        private object selectedValue;
+        private Color a;
+
+        private void TimeTable_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                DataGridViewCell clickedCell = TimeTable.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                selectedValue = clickedCell.Value; // 클릭된 셀의 값을 selectedValue에 저장
+            }
+        }
+
+        private void TimeTable_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex == 0 || e.ColumnIndex == 0)
+            {
+                // 값이 변경된 셀이 아닌 경우 또는 이전과 동일한 값으로 변경된 경우에만 실행
+                if (selectedValue != null && !selectedValue.Equals(TimeTable.Rows[e.RowIndex].Cells[e.ColumnIndex].Value))
+                {
+                    TimeTable.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = selectedValue; // 이전 값으로 다시 설정
+                    MessageBox.Show("1행과 1열은 변경할 수 없습니다.");
+                }
+            }
+        }
+
+        private void TextBox_TextChanged(object sender, EventArgs e)
+        {
+            TextBox.Text = string.Empty;
+        }
+
+        private void PlusButton_Click(object sender, EventArgs e)
         {
             /*
             if (selectedCell != null) //셀 선택 됐을떄만 실행
@@ -107,63 +325,9 @@ namespace login
             }
         }
 
-        /*private void TimeTable_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        private void TextBox_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                DataGridViewCell clickedCell = TimeTable.Rows[e.RowIndex].Cells[e.ColumnIndex];
-
-                // 1행과 1열인 경우 (인덱스가 0일 때) 변경되지 않도록 경고 메시지 표시
-                if (e.RowIndex == 0 || e.ColumnIndex == 0)
-                {
-                    MessageBox.Show("이 셀은 변경할 수 없습니다.");
-                    return;
-                }
-
-                // 이하 선택된 셀에 내용을 변경하는 코드
-                string inputItem = secondGrade.SelectedItem.ToString();
-                if (clickedCell != null)
-                {
-                    string newContent = inputItem;
-                    clickedCell.Value = newContent;
-                }
-                else
-                {
-                    MessageBox.Show("셀을 먼저 선택하세요.");
-                }
-            }
-        }*/
-
-        private void color_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedColor = color.SelectedItem.ToString();
-            if (selectedColor == "lightBlue")
-            {
-                TimeTable.DefaultCellStyle.BackColor = Color.LightBlue;
-            }
-            if (selectedColor == "pink")
-                TimeTable.DefaultCellStyle.BackColor = Color.Pink;
-            if (selectedColor == "yellow")
-                TimeTable.DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
-            if (selectedColor == "blue")
-                TimeTable.DefaultCellStyle.BackColor = Color.Blue;
-            if (selectedColor == "white")
-                TimeTable.DefaultCellStyle.BackColor = Color.White;
-            if (selectedColor == "gray")
-                TimeTable.DefaultCellStyle.BackColor = Color.Gray;
-        }
-
-
-        private object selectedValue;
-        private Color a;
-
-        private void TimeTable_CellClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                DataGridViewCell clickedCell = TimeTable.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                selectedValue = clickedCell.Value; // 클릭된 셀의 값을 selectedValue에 저장
-            }
+            TextBox.Text = string.Empty;
         }
 
         private void bt_delete_Click(object sender, EventArgs e)
