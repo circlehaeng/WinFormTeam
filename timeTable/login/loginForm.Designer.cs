@@ -60,6 +60,8 @@
             this.txtPassword.Size = new System.Drawing.Size(200, 22);
             this.txtPassword.TabIndex = 18;
             this.txtPassword.Text = "비밀번호를 입력해 주세요.";
+            this.txtPassword.Click += new System.EventHandler(this.textBox2_Click);
+            this.txtPassword.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
             // txtUsername
             // 
@@ -74,6 +76,8 @@
             this.txtUsername.Size = new System.Drawing.Size(200, 22);
             this.txtUsername.TabIndex = 17;
             this.txtUsername.Text = "아이디를 입력해 주세요.";
+            this.txtUsername.Click += new System.EventHandler(this.textBox1_Click);
+            this.txtUsername.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // label3
             // 
