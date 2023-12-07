@@ -134,6 +134,26 @@ namespace login
             }
         }*/
 
+        private void color_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedColor = color.SelectedItem.ToString();
+            if (selectedColor == "lightBlue")
+            {
+                TimeTable.DefaultCellStyle.BackColor = Color.LightBlue;
+            }
+            if (selectedColor == "pink")
+                TimeTable.DefaultCellStyle.BackColor = Color.Pink;
+            if (selectedColor == "yellow")
+                TimeTable.DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
+            if (selectedColor == "blue")
+                TimeTable.DefaultCellStyle.BackColor = Color.Blue;
+            if (selectedColor == "white")
+                TimeTable.DefaultCellStyle.BackColor = Color.White;
+            if (selectedColor == "gray")
+                TimeTable.DefaultCellStyle.BackColor = Color.Gray;
+        }
+
+
         private object selectedValue;
         private Color a;
 
