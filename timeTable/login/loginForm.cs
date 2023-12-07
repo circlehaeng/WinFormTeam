@@ -43,6 +43,20 @@ namespace login
                 txtPassword.PasswordChar = '\0';
             }
         }
+        private void Button1_click(object sender, EventArgs e)
+        {
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+
+            if (username == "123" && password == "123")
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("로그인 실패. 아이디와 비밀번호를 확인하세요.", "로그인 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
     }
 }
