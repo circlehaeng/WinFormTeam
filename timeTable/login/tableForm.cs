@@ -106,5 +106,30 @@ namespace login
                 MessageBox.Show("셀을 먼저 선택하세요."); // 선택된 셀이 없는 경우 메시지 표시
             }
         }
+
+        private object selectedValue;
+        private Color a;
+
+        private void bt_delete_Click(object sender, EventArgs e)
+        {
+            if (TimeTable.SelectedCells.Count > 0)
+            {
+                foreach (DataGridViewCell cell in TimeTable.SelectedCells)
+                {
+                    // 1행과 1열은 변경할 수 없도록 제한
+                    if (cell.RowIndex != 0 && cell.ColumnIndex != 0)
+                    {
+                        a = TimeTable.DefaultCellStyle.BackColor;
+                        cell.Value = string.Empty;
+                        cell.Style.BackColor = a;// 선택된 모든 셀에 값을 채움
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("셀을 먼저 선택하세요."); // 선택된 셀이 없는 경우 메시지 표시
+            }
+        }
+
     }
 }
