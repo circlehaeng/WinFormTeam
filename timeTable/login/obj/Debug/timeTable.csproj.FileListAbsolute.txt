@@ -1,0 +1,12 @@
+C:\WinFormTeam\timeTable\login\obj\Debug\timeTable.csproj.AssemblyReference.cache
+C:\WinFormTeam\timeTable\login\obj\Debug\timeTable.csproj.SuggestedBindingRedirects.cache
+C:\WinFormTeam\timeTable\login\obj\Debug\login.loginForm.resources
+C:\WinFormTeam\timeTable\login\obj\Debug\timeTable.csproj.GenerateResource.cache
+C:\WinFormTeam\timeTable\login\obj\Debug\login.Form1.resources
+C:\WinFormTeam\timeTable\login\bin\Debug\login.exe.config
+C:\WinFormTeam\timeTable\login\bin\Debug\login.exe
+C:\WinFormTeam\timeTable\login\bin\Debug\login.pdb
+C:\WinFormTeam\timeTable\login\obj\Debug\login.Properties.Resources.resources
+C:\WinFormTeam\timeTable\login\obj\Debug\timeTable.csproj.CoreCompileInputs.cache
+C:\WinFormTeam\timeTable\login\obj\Debug\login.exe
+C:\WinFormTeam\timeTable\login\obj\Debug\login.pdb
