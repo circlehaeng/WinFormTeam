@@ -73,7 +73,7 @@ namespace login
 
                 private void PlusButton_Click(object sender, EventArgs e)
         {
-
+            /*
             if (selectedCell != null) //셀 선택 됐을떄만 실행
             {
                 string newContent = TextBox.Text.Trim(); // 변경할 새로운 내용(trim이 텍스트박스 가져오는거)
@@ -85,7 +85,26 @@ namespace login
             {
                 MessageBox.Show("셀을 먼저 선택하세요."); //안됐으면 선택하라 뜸
             }
-
+            */
+            string inputItem = TextBox.Text.Trim();
+            Random random = new Random();
+            Color randomColor = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
+            if (TimeTable.SelectedCells.Count > 0)
+            {
+                foreach (DataGridViewCell cell in TimeTable.SelectedCells)
+                {
+                    // 1행과 1열은 변경할 수 없도록 제한
+                    if (cell.RowIndex != 0 && cell.ColumnIndex != 0)
+                    {
+                        cell.Value = inputItem;
+                        cell.Style.BackColor = randomColor;// 선택된 모든 셀에 값을 채움
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("셀을 먼저 선택하세요."); // 선택된 셀이 없는 경우 메시지 표시
+            }
         }
     }
 }
