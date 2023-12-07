@@ -12,6 +12,7 @@ namespace login
 {
     public partial class Form1 : Form
     {
+        DataGridViewCell selectedCell; //datagridviewcell <- 이게 표임
         public Form1()
         {
             InitializeComponent();
@@ -54,6 +55,17 @@ namespace login
                 }
             }
 
+            // DataGridView 셀 클릭 이벤트 추가
+            TimeTable.CellClick += TimeTable_CellClick; //cellclick 이벤트에 함수 추가
+
+        }
+
+        private void TimeTable_CellClick(object sender, DataGridViewCellEventArgs e) // 셀 눌렀을 떄
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0) //행렬이 0보다 큰 걸 눌렀을 떄(제대로 된 거 눌렀을 떄 만 실행한다는 거임)
+            {
+                selectedCell = TimeTable.Rows[e.RowIndex].Cells[e.ColumnIndex]; //선택된 셀을 이걸로 바꿈
+            }
         }
     }
 }
