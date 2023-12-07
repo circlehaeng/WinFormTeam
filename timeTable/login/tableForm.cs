@@ -12,6 +12,7 @@ namespace login
 {
     public partial class Form1 : Form
     {
+        DataGridViewCell selectedCell; //datagridviewcell <- 이게 표임
         public Form1()
         {
             InitializeComponent();
@@ -52,6 +53,37 @@ namespace login
                     DataGridViewCell cell = TimeTable.Rows[i].Cells[j];
                     cell.ReadOnly = true; // 읽을 수만 있게
                 }
+            }
+
+            // DataGridView 셀 클릭 이벤트 추가
+            TimeTable.CellClick += TimeTable_CellClick; //cellclick 이벤트에 함수 추가
+
+            // 변경 버튼 클릭 이벤트 추가
+            PlusButton.Click += PlusButton_Click;
+
+        }
+
+        private void TimeTable_CellClick(object sender, DataGridViewCellEventArgs e) // 셀 눌렀을 떄
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0) //행렬이 0보다 큰 걸 눌렀을 떄(제대로 된 거 눌렀을 떄 만 실행한다는 거임)
+            {
+                selectedCell = TimeTable.Rows[e.RowIndex].Cells[e.ColumnIndex]; //선택된 셀을 이걸로 바꿈
+            }
+        }
+
+                private void PlusButton_Click(object sender, EventArgs e)
+        {
+
+            if (selectedCell != null) //셀 선택 됐을떄만 실행
+            {
+                string newContent = TextBox.Text.Trim(); // 변경할 새로운 내용(trim이 텍스트박스 가져오는거)
+
+                // newcontent << textbox 내용
+                selectedCell.Value = newContent; //이거 값 newContent로 채움
+            }
+            else
+            {
+                MessageBox.Show("셀을 먼저 선택하세요."); //안됐으면 선택하라 뜸
             }
 
         }

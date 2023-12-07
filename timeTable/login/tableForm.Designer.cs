@@ -184,6 +184,7 @@
             this.TimeTable.RowTemplate.Height = 23;
             this.TimeTable.Size = new System.Drawing.Size(674, 665);
             this.TimeTable.TabIndex = 15;
+            this.TimeTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TimeTable_CellClick);
             // 
             // Form1
             // 
