@@ -71,7 +71,7 @@ namespace login
             }
         }
 
-        private void PlusButton_Click(object sender, EventArgs e)
+                private void PlusButton_Click(object sender, EventArgs e)
         {
 
             if (selectedCell != null) //셀 선택 됐을떄만 실행
