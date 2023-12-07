@@ -58,6 +58,9 @@ namespace login
             // DataGridView 셀 클릭 이벤트 추가
             TimeTable.CellClick += TimeTable_CellClick; //cellclick 이벤트에 함수 추가
 
+            // 변경 버튼 클릭 이벤트 추가
+            PlusButton.Click += PlusButton_Click;
+
         }
 
         private void TimeTable_CellClick(object sender, DataGridViewCellEventArgs e) // 셀 눌렀을 떄
@@ -66,6 +69,23 @@ namespace login
             {
                 selectedCell = TimeTable.Rows[e.RowIndex].Cells[e.ColumnIndex]; //선택된 셀을 이걸로 바꿈
             }
+        }
+
+        private void PlusButton_Click(object sender, EventArgs e)
+        {
+
+            if (selectedCell != null) //셀 선택 됐을떄만 실행
+            {
+                string newContent = TextBox.Text.Trim(); // 변경할 새로운 내용(trim이 텍스트박스 가져오는거)
+
+                // newcontent << textbox 내용
+                selectedCell.Value = newContent; //이거 값 newContent로 채움
+            }
+            else
+            {
+                MessageBox.Show("셀을 먼저 선택하세요."); //안됐으면 선택하라 뜸
+            }
+
         }
     }
 }
